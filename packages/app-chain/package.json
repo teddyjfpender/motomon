@@ -1,0 +1,37 @@
+{
+    "name": "@motomon/app-chain",
+    "main": "src/index.ts",
+    "module": "src/index.js",
+    "type": "module",
+    "peerDependencies": {
+      "typescript": "^5.0.0"
+    },
+    "dependencies": {
+      "@motomon/runtime-modules": "link:@motomon/runtime-modules",
+      "@proto-kit/common": "0.1.1-develop.260",
+      "@proto-kit/module": "0.1.1-develop.260",
+      "@proto-kit/protocol": "0.1.1-develop.260",
+      "@proto-kit/sdk": "0.1.1-develop.260",
+      "@proto-kit/sequencer": "0.1.1-develop.260",
+      "core-js": "^3.32.2",
+      "snarkyjs": "0.12.0",
+      "tsyringe": "^4.8.0"
+    },
+    "devDependencies": {
+      "bun-types": "latest",
+      "@types/react-dom": "^18.2.7",
+      "assert": "^2.0.0",
+      "buffer": "^6.0.3",
+      "crypto-browserify": "^3.12.0",
+      "events": "^3.3.0",
+      "loglevel": "^1.8.1",
+      "path-browserify": "^1.0.1",
+      "process": "^0.11.10",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "stream-browserify": "^3.0.0",
+      "string_decoder": "^1.3.0",
+      "url": "^0.11.1",
+      "util": "^0.12.5"
+    }
+  }
