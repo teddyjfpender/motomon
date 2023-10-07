@@ -1,0 +1,18 @@
+{
+  "name": "@motomon/zk-oracle",
+  "main": "src/index.ts",
+  "module": "src/index.js",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@motomon/domain-model": "link:@motomon/domain-model",
+    "dotenv": "^16.3.1",
+    "elysia": "latest",
+    "snarkyjs": "0.12.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}

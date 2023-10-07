@@ -4,6 +4,8 @@
   "type": "module",
   "workspaces": [
     "packages/runtime-modules",
-    "packages/app-chain"
+    "packages/app-chain",
+    "packages/domain-model",
+    "packages/zk-oracle"
     ]
 }

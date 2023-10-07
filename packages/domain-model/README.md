@@ -1,0 +1,2 @@
+# @motomon/domain-model
+
