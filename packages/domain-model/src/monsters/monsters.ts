@@ -111,7 +111,7 @@ interface MonsterParty {
 }
 
 export class MonsterPartyStruct extends Struct({
-    // a party is a proverable array of monsters, currently only supporting 1 monster
+    // a party is a provable array of monsters, currently only supporting 1 monster
     monsters: Provable.Array(MonsterStruct, 1)
 }) implements MonsterParty {
     constructor(monsters: MonsterStruct[]) {

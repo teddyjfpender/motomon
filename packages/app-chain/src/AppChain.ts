@@ -1,21 +1,6 @@
 import { TestingAppChain } from "@proto-kit/sdk";
 import { PrivateKey } from "snarkyjs";
 import { Balances, Monsters, MonsterConfig, BalancesConfig} from "@motomon/runtime-modules";
-
-type ModuleQueries = {
-    Balances: typeof Balances;
-    Monsters: typeof Monsters;
-  };
-
-export type BalancesQueries = keyof typeof Balances;
-export type MonstersQueries = keyof typeof Monsters;
-
-function getModuleQuery<T>(
-    module: any,
-    queryKey: keyof T
-    ): any {
-    return module[queryKey];
-}
   
 export class MotomonChain {
 

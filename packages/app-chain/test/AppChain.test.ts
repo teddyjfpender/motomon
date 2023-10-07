@@ -2,7 +2,7 @@ import "core-js";
 import "reflect-metadata";
 
 import { PrivateKey, PublicKey, UInt64 } from "snarkyjs";
-import { MotomonChain, BalancesQueries } from "../src/AppChain";
+import { MotomonChain } from "../src/AppChain";
 import { describe, expect, it, beforeAll } from "bun:test";
 
 describe("Monster", () => {
