@@ -18,9 +18,9 @@
 
 </div>
 
-# 🎮 Motomon: The Ultimate zkVM Autonomous Worlds Game!
+# 🎮 Motomon: A zkVM Autonomous World Game!
 
-Welcome to **Motomon**! The game that brings an autonomous world to life with the power of a zkVM built with [Protokit](https://protokit.dev/) and zkOracles.
+Welcome to **Motomon**! The game that brings a modular autonomous world to life with the power of a zkVM built with [Protokit](https://protokit.dev/) and zkOracles.
 
 Step into the world of Motomon, where you can explore, trade, battle, and more, all while experiencing the magic of zero-knowledge.
 

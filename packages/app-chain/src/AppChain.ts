@@ -43,9 +43,7 @@ export class MotomonChain {
     }): MotomonChain {
       return new MotomonChain(config);
     }
-  
-    // Now you can define all the methods you want by calling them on chainInstance.
-  
+    
     public setSigner(signer: PrivateKey) {
       return this.chainInstance.setSigner(signer);
     }
