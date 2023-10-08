@@ -7,6 +7,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@elysiajs/cors": "^0.7.1",
     "@motomon/domain-model": "link:@motomon/domain-model",
     "dotenv": "^16.3.1",
     "elysia": "latest",

@@ -6,6 +6,7 @@
     "packages/runtime-modules",
     "packages/app-chain",
     "packages/domain-model",
+    "packages/game",
     "packages/zk-oracle"
     ]
 }

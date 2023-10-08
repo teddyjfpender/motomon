@@ -115,7 +115,7 @@ out
 # Nuxt.js build / generate output
 
 .nuxt
-dist
+#dist
 
 # Gatsby files
 
@@ -169,7 +169,7 @@ dist
 .pnp.\*
 
 # build
-./dist
+#./dist
 
 # .DS_Store (if you're on a Mac)
 .DS_Store
