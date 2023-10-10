@@ -8,11 +8,11 @@
     },
     "dependencies": {
       "@motomon/runtime-modules": "link:@motomon/runtime-modules",
-      "@proto-kit/common": "0.1.1-develop.260",
-      "@proto-kit/module": "0.1.1-develop.260",
-      "@proto-kit/protocol": "0.1.1-develop.260",
-      "@proto-kit/sdk": "0.1.1-develop.260",
-      "@proto-kit/sequencer": "0.1.1-develop.260",
+      "@proto-kit/common": "0.1.1-develop.267",
+      "@proto-kit/module": "0.1.1-develop.267",
+      "@proto-kit/protocol": "0.1.1-develop.267",
+      "@proto-kit/sdk": "0.1.1-develop.267",
+      "@proto-kit/sequencer": "0.1.1-develop.267",
       "core-js": "^3.32.2",
       "snarkyjs": "0.12.0",
       "tsyringe": "^4.8.0"
