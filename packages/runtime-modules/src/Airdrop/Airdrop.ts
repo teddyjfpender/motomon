@@ -8,7 +8,7 @@ import {
 import { State, StateMap, assert } from "@proto-kit/protocol";
 import { Bool, Field, MerkleMapWitness, Poseidon, Provable, PublicKey, UInt64 } from "snarkyjs";
 import { inject } from "tsyringe";
-import { Balances } from "..";
+import { Balances } from "../Balances/Balances";
   
   /**
    * `Airdrop` is a runtime module responsible for managing claimable airdrops.
@@ -41,7 +41,7 @@ import { Balances } from "..";
       // this is currently unconstrained, anyone can set the commitment
       this.commitment.set(commitment);
       // reset the nullifiers
-      this.airdropNullifiers = StateMap.from<PublicKey, Bool>(PublicKey, Bool);
+      // TODO
     }
 
     /**
