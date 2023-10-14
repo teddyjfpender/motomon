@@ -7,6 +7,7 @@
       "typescript": "^5.0.0"
     },
     "dependencies": {
+      "@motomon/domain-model": "link:@motomon/domain-model",
       "@proto-kit/common": "0.1.1-develop.267",
       "@proto-kit/module": "0.1.1-develop.267",
       "@proto-kit/protocol": "0.1.1-develop.267",

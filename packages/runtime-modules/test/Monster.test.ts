@@ -3,44 +3,10 @@ import "reflect-metadata";
 
 import { TestingAppChain } from "@proto-kit/sdk";
 import { Field, Poseidon, PrivateKey, PublicKey, Scalar, UInt64 } from "snarkyjs";
-import { MonsterAttribute, MonsterStruct, Monsters, SignedMonsterStruct } from "../src/Monsters/Monsters";
+import { movesDictionary, MonsterStruct, SignedMonsterStruct } from "@motomon/domain-model";
+import { Monsters } from "../src/Monsters/Monsters";
 import { Balances } from "../src/Balances/Balances";
 import { describe, expect, it, beforeAll } from "bun:test";
-
-const movesDictionary = {
-  "solar beam": new MonsterAttribute(
-                                     // Move ID
-                                      Field(0),
-                                      // Move Strength
-                                      Field(101),
-                                      // Move's weakness Type ID
-                                      Field(1)
-                                    ),
-  "tackle": new MonsterAttribute(
-                                  // Move ID
-                                  Field(1),
-                                  // Move Strength
-                                  Field(8),
-                                  // Move's weakness Type ID
-                                  Field(0)
-                                ),
-  "scratch": new MonsterAttribute(
-                                   // Move ID
-                                   Field(2),
-                                   // Move Strength
-                                   Field(12),
-                                   // Move's weakness Type ID
-                                   Field(0)
-                                 ),
-  "ember": new MonsterAttribute(
-                                // Move ID
-                                Field(3),
-                                // Move Strength
-                                Field(13),
-                                // Move's weakness Type ID
-                                Field(0)
-                              ),
-}
 
 describe("Monster", () => {
   let appChain: TestingAppChain<{ Monsters: typeof Monsters; Balances: typeof Balances}>;
@@ -123,7 +89,7 @@ describe("Monster", () => {
     // create the monster
     const monster = new MonsterStruct(uuid, attributes, hp);
     // sign the monster with the oracle's private key
-    const signedMonster = new SignedMonsterStruct(monster, oraclePrivateKey);
+    const signedMonster = new SignedMonsterStruct(monster, oraclePrivateKey.toBase58());
     // verify the signature
     const verified = signedMonster.signature.verify(
       oraclePublicKey,

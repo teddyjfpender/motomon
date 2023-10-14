@@ -1,0 +1,37 @@
+{
+	"--": {
+		"type": "separator",
+		"title": "Motomon Stack"
+	},
+	"index": "Motomon",
+	"introduction": "Introduction",
+	"ideas": "Key Ideas",
+	"architecture": "Architecture",
+	"why": "Why",
+	"future": "Future Features",
+	"---": {
+		"type": "separator",
+		"title": "Build on Motomon"
+	},
+	"benchmarks": "Benchmarks",
+	"build": "Get Started",
+	"config": "Configure",
+	"tools": "Tooling",
+	"ecosystem": "Ecosystem",
+	"contribute": "Contribute",
+	"----": {
+		"type": "separator",
+		"title": "Security"
+	},
+	"security": "FAQ",
+	"about": {
+		"title": "About",
+		"type": "page"
+	},
+	"contact": {
+		"title": "Contact ↗",
+		"type": "page",
+		"href": "https://discord.com/channels/",
+		"newWindow": true
+	}
+}

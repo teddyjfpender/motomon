@@ -3,19 +3,19 @@ import { Field, PrivateKey, Provable, Signature, Struct } from "snarkyjs";
 interface MonsterAttribute {
     id: Field;
     strength: Field;
-    weaknessId: Field;
+    moveCount: Field;
 }
 
 export class MonsterAttributeStruct extends Struct({
     id: Field,
     strength: Field,
-    weaknessId: Field
+    moveCount: Field
 }) implements MonsterAttribute {
-    constructor(id: Field, strength: Field, weaknessId: Field) {
+    constructor(id: Field, strength: Field, moveCount: Field) {
         super({
             id: id,
             strength: strength,
-            weaknessId: weaknessId
+            moveCount: moveCount
         })
     }
 
@@ -23,7 +23,7 @@ export class MonsterAttributeStruct extends Struct({
         return {
             id: Field(0),
             strength: Field(0),
-            weaknessId: Field(0)
+            moveCount: Field(0)
         }
     }
 
@@ -31,12 +31,12 @@ export class MonsterAttributeStruct extends Struct({
         return {
             id: this.id.toJSON(),
             strength: this.strength.toJSON(),
-            weaknessId: this.weaknessId.toJSON()
+            moveCount: this.moveCount.toJSON()
         }
     }
 
     fromJSON(json: any) {
-        return new MonsterAttributeStruct(Field.fromJSON(json.id), Field.fromJSON(json.strength), Field.fromJSON(json.weaknessId))
+        return new MonsterAttributeStruct(Field.fromJSON(json.id), Field.fromJSON(json.strength), Field.fromJSON(json.moveCount))
     }
 }
 
@@ -61,7 +61,7 @@ export class MonsterStruct extends Struct({
         for (let i = 0; i < attributes.length; i++) {
             fields.push(attributes[i].id);
             fields.push(attributes[i].strength);
-            fields.push(attributes[i].weaknessId);
+            fields.push(attributes[i].moveCount);
         }
         super({
             uuid: id,
@@ -69,6 +69,15 @@ export class MonsterStruct extends Struct({
             hp: hp,
             fieldRepresentation: fields
         })
+    }
+
+    updateHP(hit: Field) {
+        const newHp = Provable.if(this.hp.greaterThanOrEqual(hit), this.hp.sub(hit), Field(0))
+        return this.hp = newHp
+    }
+
+    isFainted() {
+        return this.hp.equals(Field(0))
     }
 
     static nullMonster(): Monster {
@@ -80,7 +89,7 @@ export class MonsterStruct extends Struct({
         for (let i = 0; i < nullAttributes.length; i++) {
             fields.push(nullAttributes[i].id);
             fields.push(nullAttributes[i].strength);
-            fields.push(nullAttributes[i].weaknessId);
+            fields.push(nullAttributes[i].moveCount);
         }
         return {
             uuid: Field(0),
