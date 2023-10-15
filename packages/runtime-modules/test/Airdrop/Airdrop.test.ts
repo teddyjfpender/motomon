@@ -55,7 +55,7 @@ describe("Balances", () => {
     airdropTree = new MerkleMap();
     airdropTree.set(
       // the key is the hash of the public key
-      Poseidon.hash(bobPublicKey.toFields()),
+      Poseidon.hash(alicePublicKey.toFields()),
       Poseidon.hash(UInt64.from(airdropAmount).toFields())
     );
   })
@@ -116,7 +116,7 @@ describe("Balances", () => {
     // set the rewards merkle tree root
     const tx3 = appChain.transaction(alicePublicKey, () => {
       airdrop.setAirdropCommitment(airdropTree.getRoot());
-    });
+    }, { nonce: 2 });
 
     await tx3.sign();
     await tx3.send();
@@ -127,14 +127,22 @@ describe("Balances", () => {
     console.log(`Set Commitment, Block Production time (1 txs): ${endTimeAirdrop - startTimeAirdrop} milliseconds`);
 
     const airdropCommitment = await appChain.query.runtime.Airdrop.commitment.get();
-    console.log("Airdrop Commitment: ", airdropCommitment?.toBigInt());
+    console.log("On-Chain Airdrop Commitment: ", airdropCommitment?.toBigInt());
     expect(airdropCommitment?.toBigInt()).toBe(airdropTree.getRoot().toBigInt());
     expect(block3?.txs[0].status).toBe(true);
 
-    // bob claims his airdrop
-    const tx4 = appChain.transaction(bobPublicKey, () => {
-      airdrop.claim(airdropTree.getWitness(Poseidon.hash(bobPublicKey.toFields())), airdropAmount);
-    });
+    // check
+    const witness = airdropTree.getWitness(Poseidon.hash(alicePublicKey.toFields()))
+    const [computedRoot, computedKey] = witness.computeRootAndKey(
+      Poseidon.hash(airdropAmount.toFields())
+    );
+    expect(computedRoot).toEqual(airdropCommitment);
+    expect(computedKey).toEqual(Poseidon.hash(alicePublicKey.toFields()));
+
+    // alice claims her airdrop -- this doesn't reset the signer
+    const tx4 = appChain.transaction(alicePublicKey, () => {
+      airdrop.claim(witness, airdropAmount);
+    }, { nonce: 3 });
 
     await tx4.sign();
     await tx4.send();
