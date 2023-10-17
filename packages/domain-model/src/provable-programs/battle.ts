@@ -1,4 +1,4 @@
-import { Field, Experimental, Struct, Provable, Poseidon, Bool } from "snarkyjs";
+import { Field, Experimental, Struct} from "snarkyjs";
 import { MonsterAttributeStruct, MonsterStruct } from "../monsters";
 
 export class BattleLogEntry extends Struct({
